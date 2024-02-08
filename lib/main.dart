@@ -14,6 +14,23 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return  Scaffold(
+      body: Stack(
+        children: <Widget>[
+          CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                backgroundColor: Colors.black,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Container(decoration:const BoxDecoration(
+                    image: DecorationImage(image: AssetImage(""))
+                  ),),
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
   }
 }
