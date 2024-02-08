@@ -26,9 +26,10 @@ class _UserProfileState extends State<UserProfile> {
           CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
-                expandedHeight: 600,
+                expandedHeight: 450,
                 backgroundColor: Colors.black,
                 flexibleSpace: FlexibleSpaceBar(
+                  collapseMode: CollapseMode.pin,
                   background: Container(
                     decoration: const BoxDecoration(
                       image: DecorationImage(
@@ -201,6 +202,9 @@ class _UserProfileState extends State<UserProfile> {
                                 ],
                               ),
                             ),
+                          ),
+                          const SizedBox(
+                            height: 120,
                           )
                         ],
                       ),
@@ -209,6 +213,33 @@ class _UserProfileState extends State<UserProfile> {
                 ),
               )
             ],
+          ),
+          Positioned.fill(
+            bottom: 50,
+            child: Container(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: FadeAnimation(
+                  delay: 2,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 30),
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: const Color.fromARGB(255, 248, 198, 71),
+                    ),
+                    child: const Align(
+                      child: Text(
+                        'Follow',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -232,9 +263,16 @@ class _UserProfileState extends State<UserProfile> {
             gradient: LinearGradient(
               begin: Alignment.bottomRight,
               colors: [
-                Colors.black,
+                Colors.black.withOpacity(.9),
                 Colors.black.withOpacity(.3),
               ],
+            ),
+          ),
+          child: const Align(
+            child: Icon(
+              Icons.play_arrow,
+              color: Colors.white,
+              size: 70,
             ),
           ),
         ),
