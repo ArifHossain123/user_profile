@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:user_profile/animations/fadeAnimation.dart';
 
 void main() {
   runApp(
@@ -51,7 +52,47 @@ class _UserProfileState extends State<UserProfile> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
-                            
+                            FadeAnimation(
+                              delay: 1,
+                              child: Text(
+                                "Leonardo",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 36,
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              children: <Widget>[
+                                FadeAnimation(
+                                  delay: 1.2,
+                                  child: Text(
+                                    " 60 Videos",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 50,
+                                ),
+                                FadeAnimation(
+                                  delay: 1.2,
+                                  child: Text(
+                                    " 240K Subscribers",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       ),
@@ -59,9 +100,144 @@ class _UserProfileState extends State<UserProfile> {
                   ),
                 ),
               ),
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          const FadeAnimation(
+                            delay: 1.5,
+                            child: Text(
+                              "Leonardo was Born in ",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                height: 1.4,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          const FadeAnimation(
+                            delay: 1.6,
+                            child: Text(
+                              "Born",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const FadeAnimation(
+                            delay: 1.6,
+                            child: Text(
+                              "April , 15th 1990, Paris, France",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const FadeAnimation(
+                            delay: 1.6,
+                            child: Text(
+                              "Nationality ",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const FadeAnimation(
+                            delay: 1.6,
+                            child: Text(
+                              "British",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          const FadeAnimation(
+                            delay: 1.6,
+                            child: Text(
+                              "Videos",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          FadeAnimation(
+                            delay: 1.6,
+                            child: Container(
+                              height: 200,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: <Widget>[
+                                  makeVideo(image: 'assets/leonardo.jpg'),
+                                  makeVideo(image: 'assets/leonardo.jpg'),
+                                  makeVideo(image: 'assets/leonardo.jpg'),
+                                ],
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
-          )
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget makeVideo({image}) {
+    return AspectRatio(
+      aspectRatio: 15 / 1,
+      child: Container(
+        margin: const EdgeInsets.only(right: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomRight,
+              colors: [
+                Colors.black,
+                Colors.black.withOpacity(.3),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
